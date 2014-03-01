@@ -11,7 +11,7 @@
 //same microcontroller etc - but a LM1881 chip is used to detect new lines and frames.
 
 //Arduino = 0, SimpleOSD = 1
-#define CONTROLLER 0
+#define CONTROLLER 1
 
 //===========================
 // Video system: PAL or NTSC
@@ -63,22 +63,22 @@
 // Depending on your model (plane/heli/car) it can be necessary to edit these parameters to show flight-summary only when landed. To disable it, just put for example 0 in speed. The speed will never be less than 0.  
 
 // As default configured for standard plane
-///*
+/*
 #define summary_speed 5       // Speed less than (in km/h)
 #define summary_los 100       // LOS less than (in meters)
 #define summary_current 99   // Current less than (in amps)
 #define summary_time 0       // Flight time more than (in seconds)
 #define summary_altitude 999  // altitude less than (in meters)
-//*/
+*/
 
-/* 
+///* 
 // Quad/helicopter example
 #define summary_speed 99       // Speed less than (in km/h)
 #define summary_los 9999       // LOS less than (in meters)
 #define summary_current 3   // Current less than (in amps)
 #define summary_time 0       // Flight time more than (in seconds)
 #define summary_altitude 999  // altitude less than (in meters)
-*/
+//*/
 
 // RSSI setup. Please note, when RSSI is active it will replace mah/km.
 #define show_rssi 0 // 1= on, 0 = off
@@ -235,7 +235,6 @@
 #define delay2  __asm__("nop\n\t""nop\n\t"); 
 #define delay1  __asm__("nop\n\t"); 
 
-#define clock 16000000
-#define BAUD_SETTINGS clock/16/BAUD-1
+#define BAUD_SETTINGS F_CPU/16/BAUD-1
 
 #endif
