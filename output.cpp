@@ -90,10 +90,8 @@ void detectline() {
   */
 
   if (line > timer_line  && line < (timer_line + 17)) {
-
     // Used to align the text
     _delay_loop_1(align_text);
-
 
     temp = line - (timer_line + 1);
 
@@ -104,14 +102,12 @@ void detectline() {
       buffer2[2] = (flight_timer[2]) << 5;
       buffer2[3] = (flight_timer[3]) << 5;
 
-
       if (show_mah_km == 1 || show_rssi == 1) {
         if (show_rssi == 1) {
           mahkmr[0] = 3;
           mahkmr[1] = rssir[0];
           mahkmr[2] = rssir[1];
           mahkmr[3] = rssir[2];
-
         }
         if (mahkmr[0] == 3 && mahkmr[1] == 3 && mahkmr[2] == 3) {
           mahkm_buf[0] = 14 << 5;
@@ -174,7 +170,6 @@ void detectline() {
       delay15
       DimOff;
 
-
       if (show_plane_pos == 1) {
         _delay_loop_1(44);
         SPDR = pgm_read_byte(&LargeNumbers[homehead_r[0] + 2 * temp]);
@@ -197,7 +192,6 @@ void detectline() {
         delay15
 
         DimOff;
-
       }
       else {
         _delay_loop_1(84);
@@ -247,7 +241,6 @@ void detectline() {
   ////////////////////////////////////////////
 
   else if (line > toplinenumbers  && line < (toplinenumbers + 17)) {
-
     // Used to align the text
     _delay_loop_1(align_text);
     _delay_loop_1(1);
@@ -347,8 +340,7 @@ void detectline() {
       // Here should be time to update the buffer for the arrow
       buffer2[11] = arrowd << 5;
 
-      // Skriver LOS tal
-
+      // Writes LOS number
       if (buffer3[5] != 448) {
         SPDR = pgm_read_byte(&LargeNumbers[buffer3[5] + 2 * temp]);
         DimOn;
@@ -389,7 +381,6 @@ void detectline() {
       }
 
       // Let's draw the arrow.
-
       SPDR = pgm_read_byte(&HomeArrow[buffer2[11] + 2 * temp]);
       DimOn;
       delay13
@@ -398,10 +389,8 @@ void detectline() {
       DimOff;
 
       // Writes ALT
-
       if (show_decimals == 1) {
         //              _delay_loop_1(13);
-
         if (buffer3[9] != 448) {
           SPDR = pgm_read_byte(&LargeNumbers[buffer3[9] + 2 * temp]);
           DimOn;
@@ -587,7 +576,6 @@ void detectline() {
         SPDR = pgm_read_byte(&letters[(20 << 3) + (temp - 8)]);
         delay5
       }
-
       else {
         _delay_loop_1(16);
         delay8
@@ -669,8 +657,6 @@ void detectline() {
   ////////////////////////////////////////////
   // Buttom line big numbers END
   ////////////////////////////////////////////
-
-
 
 
 
@@ -1283,17 +1269,12 @@ void detectline() {
           buffer[0] = ('Y' - 64) << 3;
           buffer[1] = ('E' - 64) << 3;
           buffer[2] = ('S' - 64) << 3;
-
         }
-
         else {
           buffer[0] = ('N' - 64) << 3;
           buffer[1] = ('O' - 64) << 3;
           buffer[2] = ('@' - 64) << 3;
-
-
         }
-
         for (unsigned char ij = 0; ij < 3; ij++) {
           SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(4);
@@ -1302,8 +1283,6 @@ void detectline() {
         DimOff;
 
       }
-
-
       if  (temp == 19) {
 
         test = (homeposcount * 10) / set_home_delay;
@@ -1311,18 +1290,13 @@ void detectline() {
           loadbar[i] = 26;
         }
         // SPDR=0b11111110;
-
       }
-
       if (temp == 20) {
-
-
         for (unsigned char ij = 0; ij < 9; ij++) {
           buffer[ij] = (loadbar[ij]) << 3;
         }
 
         buffer[9] = (28) << 3;
-
 
         buffer[10] = ('D' - 64) << 3;
         buffer[11] = ('E' - 64) << 3;
@@ -1330,9 +1304,6 @@ void detectline() {
         buffer[13] = ('A' - 64) << 3;
         buffer[14] = ('Y' - 64) << 3;
       }
-
-
-
       if (temp > 31 && temp < 40) {
         temp = line - (summaryline + 33);
         _delay_loop_1(60);
@@ -1341,27 +1312,18 @@ void detectline() {
         for (unsigned char ij = 10; ij < 15; ij++) {
           SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(2);
-
         }
         _delay_loop_1(3);
-
-
         // Writes ':'
         SPDR = pgm_read_byte(&numbers[104 + temp]);
         _delay_loop_1(9);
 
         DimOff;
-
-
-
       }
 
       if (temp > 42 && temp < 51) {
-
         _delay_loop_1(37);
         temp = line - (summaryline + 44);
-
-
         for (unsigned char ij = 0; ij < 10; ij++) {
           SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           DimOn;
@@ -1369,10 +1331,7 @@ void detectline() {
         }
         _delay_loop_1(1);
         DimOff;
-
       }
-
-
       if (temp > 64 && temp < 73) {
         temp = line - (summaryline + 66);
         _delay_loop_1(35);
@@ -1383,19 +1342,13 @@ void detectline() {
             buffer[ij] = time[ij] << 3;
           }
         }
-
-
         else {
           // Shift out first 8 bit
-
           DimOn;
           for (unsigned char ij = 0; ij < 2; ij++) {
             SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
             _delay_loop_1(3);
           }
-
-
-
           _delay_loop_1(3);
           SPDR = pgm_read_byte(&numbers[(104) + (temp)]);
 
@@ -1404,9 +1357,6 @@ void detectline() {
             SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
             _delay_loop_1(4);
           }
-
-
-
           _delay_loop_1(3);
           SPDR = pgm_read_byte(&numbers[(104) + (temp)]);
           _delay_loop_1(4);
@@ -1414,13 +1364,10 @@ void detectline() {
             SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
-
-
           _delay_loop_1(3);
           DimOff;
         }
       }
-
 
       if (temp > 80 && temp < 89) {
         temp = line - (summaryline + 82);
@@ -1444,7 +1391,6 @@ void detectline() {
           _delay_loop_1(2);
         }
         _delay_loop_1(6);
-
 
         SPDR = pgm_read_byte(&numbers[(buffer[7]) + (temp)]);
         delay15
