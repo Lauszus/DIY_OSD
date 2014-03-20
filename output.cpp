@@ -171,7 +171,7 @@ void detectline() {
       DimOff;
 
       if (show_plane_pos == 1) {
-        _delay_loop_1(44);
+        _delay_loop_1(44 - 8);
         SPDR = pgm_read_byte(&LargeNumbers[homehead_r[0] + 2 * temp]);
         DimOn;
         delay13
@@ -198,7 +198,7 @@ void detectline() {
         delay1
       }
       if  (show_mah_km == 1 || show_rssi == 1 ) {
-        _delay_loop_1(41); // 126
+        _delay_loop_1(41 - 14);
         delay1
         SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[0] + 2 * temp]);
         DimOn;
@@ -334,7 +334,7 @@ void detectline() {
         delay15
 
         DimOff;
-        _delay_loop_1(25);
+        _delay_loop_1(25 - 10);
       }
 
       // Here should be time to update the buffer for the arrow
@@ -350,7 +350,7 @@ void detectline() {
         delay4
       }
       else {
-        _delay_loop_1(12);
+        _delay_loop_1(12 + 2);
       }
 
       SPDR = pgm_read_byte(&LargeNumbers[buffer3[6] + 2 * temp]);
@@ -359,7 +359,6 @@ void detectline() {
 
       SPDR = pgm_read_byte(&LargeNumbers[buffer3[6] + 2 * temp + 1]);
       delay8
-
 
       SPDR = pgm_read_byte(&LargeNumbers[buffer3[7] + 2 * temp]);
       delay15
@@ -377,7 +376,7 @@ void detectline() {
       }
       else {
         DimOff;
-        _delay_loop_1(14);
+        _delay_loop_1(14 + 2);
       }
 
       // Let's draw the arrow.
@@ -400,7 +399,7 @@ void detectline() {
           //               delay4
         }
         else {
-          _delay_loop_1(10);
+          _delay_loop_1(10 + 2);
         }
 
         if (buffer3[10] != 448) {
@@ -412,7 +411,7 @@ void detectline() {
           //               delay4
         }
         else {
-          _delay_loop_1(10);
+          _delay_loop_1(10 + 2);
         }
 
         if (buffer3[11] != 448) {
@@ -424,7 +423,7 @@ void detectline() {
           delay8
         }
         else {
-          _delay_loop_1(10);
+          _delay_loop_1(10 + 2);
           delay4
         }
 
@@ -451,7 +450,7 @@ void detectline() {
         DimOff;
       }
       else {
-        _delay_loop_1(37);
+        _delay_loop_1(37 - 20);
         SPDR = pgm_read_byte(&LargeNumbers[buffer3[9] + 2 * temp]);
         DimOn;
         delay13
@@ -532,7 +531,7 @@ void detectline() {
       }
 
       else {
-        _delay_loop_1(16);
+        _delay_loop_1(16 + 2);
         delay3
       }
 
@@ -561,7 +560,7 @@ void detectline() {
       delay15
       DimOff;
 
-      _delay_loop_1(14);
+      _delay_loop_1(14 - 11);
       //              ==================================================
 
       if (temp > 8) {
@@ -577,7 +576,7 @@ void detectline() {
         delay5
       }
       else {
-        _delay_loop_1(16);
+        _delay_loop_1(16 + 1);
         delay8
       }
 
@@ -607,9 +606,10 @@ void detectline() {
 
       // ======================================================
 
-      _delay_loop_1(20);
+      _delay_loop_1(20 - 14);
 
       if (temp > 7) {
+        delay2
         SPDR = pgm_read_byte(&letters[(13 << 3) + (temp - 8)]);
         DimOn;
         delay13
@@ -621,7 +621,7 @@ void detectline() {
         delay11
       }
       else {
-        _delay_loop_1(19);
+        _delay_loop_1(19 + 2);
         delay1
       }
 
@@ -666,7 +666,8 @@ void detectline() {
   else if (line > toplinetext  && line < (toplinetext + 9)) {
 
     // Used to align the text
-    _delay_loop_1(align_text);
+    if (align_text - 11 > 0)
+      _delay_loop_1(align_text - 11);
 
     temp = line - (toplinetext + 1);
 
@@ -699,7 +700,7 @@ void detectline() {
     DimOff;
 
     // Writes LOS (The delay loop is used to place the LOS in the middle)
-    _delay_loop_1(69);
+    _delay_loop_1(69 - 7);
 
     buffer[0] = (toptext[5]) << 3;
     buffer[1] = (toptext[6]) << 3;
@@ -717,7 +718,7 @@ void detectline() {
     DimOff;
 
     // Writes ALT;
-    _delay_loop_1(70);
+    _delay_loop_1(70 + 5);
 
     buffer[0] = (toptext[8]) << 3;
     buffer[1] = (toptext[9]) << 3;
@@ -1371,7 +1372,7 @@ void detectline() {
 
       if (temp > 80 && temp < 89) {
         temp = line - (summaryline + 82);
-        _delay_loop_1(20);
+        _delay_loop_1(18);
 
         buffer[0] = ('V' - 64) << 3;
         buffer[1] = ('E' - 64) << 3;
@@ -1790,7 +1791,8 @@ void detectline() {
   else if (line > gps_nmea_line  && line < (gps_nmea_line + 9)) {
 
     // Used to align the text
-    _delay_loop_1(align_text);
+    if (align_text - 16 > 0)
+      _delay_loop_1(align_text - 16);
 
     if (line == (gps_nmea_line + 1)) {
       if (altitude_num2 < show_gps_coordinates_altitude * 10  | flight_timer[3] % show_gps_coordinates_second == 0) {
@@ -1803,7 +1805,7 @@ void detectline() {
 
     }
     else if (showcoordinates == 1) {
-      _delay_loop_1(5);
+      //_delay_loop_1(5);
       buffer[0] = (latitude[0] - 45) << 3;
       buffer[1] = (latitude[1] - 45) << 3;
       buffer[2] = (latitude[2] - 45) << 3;
@@ -1827,7 +1829,6 @@ void detectline() {
       SPDR = pgm_read_byte(&letters[buffer[10] + (temp)]);
       delay13
       DimOff;
-
 
       //     _delay_loop_1(8);
       buffer[0] = (longitude[0] - 45) << 3;

@@ -91,7 +91,7 @@
 
 // For a cleaner look it's possible to remove decimals from speed and altitude. Speeds < 10 km/h will still show with decimals (can be changed if you wan't).
 //1 = on, 0=off.
-#define show_decimals_ 1
+#define show_decimals_ 0
 
 // Hide GPS-coordinates when altitude is more than x meter
 #define show_gps_coordinates_altitude 500
