@@ -5,7 +5,10 @@
 
 #include <avr/delay.h>
 #include <avr/pgmspace.h>
-#include <EEPROM.h>
+
+#if Usebutton == 1
+  #include <EEPROM.h>
+#endif
 
 #include <math.h>
 
@@ -66,35 +69,34 @@ int lat_deg = 90;
 // Menu system
 //========================================
 
-/*
-int menuon = 0;
-unsigned char menupos = 0;
-unsigned char move_arrow_count =0;
-
-unsigned char show_mah_km = show_mah_km_;
-unsigned char show_decimals = show_decimals_;
-unsigned char altitude_offset_on = altitude_offset_on_;
-unsigned char align_text = align_text_;
-unsigned char show_plane_pos = show_plane_pos_;
-*/
-
-//unsigned char Buttonpin = Buttonpin_;
-
 int menuon = 0;
 unsigned char menupos = 0;
 char move_arrow_count = 0;
 unsigned char menu = 1;
 
-unsigned char show_mah_km = EEPROM.read(1);
-unsigned char show_decimals = EEPROM.read(2);
-unsigned char altitude_offset_on = EEPROM.read(3);
-unsigned char align_text = EEPROM.read(4);
-unsigned char show_plane_pos = EEPROM.read(5);
+#if Usebutton == 1
+  unsigned char show_mah_km = EEPROM.read(1);
+  unsigned char show_decimals = EEPROM.read(2);
+  unsigned char altitude_offset_on = EEPROM.read(3);
+  unsigned char align_text = EEPROM.read(4);
+  unsigned char show_plane_pos = EEPROM.read(5);
 
-int alt_alarm = EEPROM.read(10) + (EEPROM.read(11) << 8);
-int los_alarm = EEPROM.read(12) + (EEPROM.read(13) << 8);
-int volt_alarm = EEPROM.read(14) + (EEPROM.read(15) << 8);
-int mah_alarm = EEPROM.read(16) + (EEPROM.read(17) << 8);
+  int alt_alarm = EEPROM.read(10) + (EEPROM.read(11) << 8);
+  int los_alarm = EEPROM.read(12) + (EEPROM.read(13) << 8);
+  int volt_alarm = EEPROM.read(14) + (EEPROM.read(15) << 8);
+  int mah_alarm = EEPROM.read(16) + (EEPROM.read(17) << 8);
+#else
+  unsigned char show_mah_km = show_mah_km_;
+  unsigned char show_decimals = show_decimals_;
+  unsigned char altitude_offset_on = altitude_offset_on_;
+  unsigned char align_text = align_text_;
+  unsigned char show_plane_pos = show_plane_pos_;
+
+  int alt_alarm = alt_alarm_;
+  int los_alarm = los_alarm_;
+  int volt_alarm = volt_alarm_;
+  int mah_alarm = mah_alarm_;
+#endif
 
 
 //========================================

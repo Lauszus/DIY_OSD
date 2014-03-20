@@ -5,8 +5,6 @@
 
 #include <avr/delay.h>
 #include <avr/pgmspace.h>
-#include <EEPROM.h>
-
 
 extern unsigned char align_text;
 extern unsigned char flight_timer[];

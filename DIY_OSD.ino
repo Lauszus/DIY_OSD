@@ -21,7 +21,10 @@
 
 #include <avr/delay.h>
 #include <avr/pgmspace.h>
-#include <EEPROM.h>
+
+#if Usebutton == 1
+  #include <EEPROM.h>
+#endif
 
 extern int line;
 
@@ -118,6 +121,7 @@ void setup() {
   digitalWrite(6, HIGH);
 #endif
 
+#if Usebutton == 1
   // If the controller have not been configured yet.
   if ((EEPROM.read(0) != 52) | (reset_values == 1)) {
     EEPROM.write(0, 52);
@@ -150,6 +154,7 @@ void setup() {
     EEPROM.write(16, (unsigned char) mah_alarm_);
     EEPROM.write(17, (unsigned char) (mah_alarm_ >> 8));
   }
+#endif
 }
 
 // ====================================================================================================================================================================================================================
