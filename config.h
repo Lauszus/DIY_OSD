@@ -1,4 +1,3 @@
-
 #ifndef config_h
 #define config_h
 
@@ -7,7 +6,7 @@
 // Hardware Arduino or SimpleOSD 16 mhz??
 //===========================
 
-// from code version 5, support for 16 mhz SimpleOSD with Arduino bootloader have been added. It uses the 
+// from code version 5, support for 16 mhz SimpleOSD with Arduino bootloader have been added. It uses the
 //same microcontroller etc - but a LM1881 chip is used to detect new lines and frames.
 
 //Arduino = 0, SimpleOSD = 1
@@ -30,7 +29,7 @@
 // Current-sensor
 #define offset_ 0
 #define current_cal 0.24 
-// These values should more or less be correct. Feel free to make a calibration (a few measurements and a linear approksimation) if you feel like it. 
+// These values should more or less be correct. Feel free to make a calibration (a few measurements and a linear approksimation) if you feel like it.
 // 25 A sensor = 0.24
 // 50 A sensor = 0.49
 // 100A sensor = 0.98
@@ -43,8 +42,8 @@
 // You can also take measurements and make a linear approksimatioin in excel etc - a quick test gave me more or less the same result...
 
 // Voltage divider
-#define voltage_divider_cal 1.82          // For SimpleOSD, I have used 1.82 - the formula gives 1.86. Test with a multimeter 
-// Calculated by (1024)/(50*divider) 
+#define voltage_divider_cal 1.82          // For SimpleOSD, I have used 1.82 - the formula gives 1.86. Test with a multimeter
+// Calculated by (1024)/(50*divider)
 
 //Altitude offset (automatic set to 0 when home-position is set)
 //1 = on, 0=off.
@@ -56,11 +55,11 @@
 
 // Align text. On different screens/video signals I have seen, that the text is not alligned perfectly. Decreasing the number will move all text left, increasing the number will move it right.
 // Smallest number allowed is 1
-// Please be aware - no limits have been made, so you can move the entire text as much as you want. If you push the text "over the edge" (when you can't see it anymore) this will cause the text 
-// to interrupt with the "new line sync". You can give it a try to see what it does - but I deffinately recommend to keep the text on the screen when flying :) 
+// Please be aware - no limits have been made, so you can move the entire text as much as you want. If you push the text "over the edge" (when you can't see it anymore) this will cause the text
+// to interrupt with the "new line sync". You can give it a try to see what it does - but I deffinately recommend to keep the text on the screen when flying :)
 #define align_text_ 22
 
-// Depending on your model (plane/heli/car) it can be necessary to edit these parameters to show flight-summary only when landed. To disable it, just put for example 0 in speed. The speed will never be less than 0.  
+// Depending on your model (plane/heli/car) it can be necessary to edit these parameters to show flight-summary only when landed. To disable it, just put for example 0 in speed. The speed will never be less than 0.
 
 // As default configured for standard plane
 #if 0
@@ -80,17 +79,17 @@
 
 // RSSI setup. Please note, when RSSI is active it will replace mah/km.
 #define show_rssi 0 // 1= on, 0 = off
-#define rssi_cal 1 
+#define rssi_cal 1
 #define rssi_min 103 // Minimum RSSI-value. Will be voltage * 205. 0.5 volt = 103. You can set this to zero and just read the min value and max value
 #define rssi_input 1 // The input pin
 
 // I was asked to make a calculation on mah/km - this can be useful to find the most efficient cruise-speed etc.
 // It can be turned on and off as you want. Please note that it will only update when the speed is > 1 km/h.
-// The number will show above mah and without unit (it's mah/km). 
+// The number will show above mah and without unit (it's mah/km).
 //1 = on, 0=off.
 #define show_mah_km_ 1
 
-// For a cleaner look it's possible to remove decimals from speed and altitude. Speeds < 10 km/h will still show with decimals (can be changed if you wan't). 
+// For a cleaner look it's possible to remove decimals from speed and altitude. Speeds < 10 km/h will still show with decimals (can be changed if you wan't).
 //1 = on, 0=off.
 #define show_decimals_ 1
 
@@ -116,7 +115,7 @@
 // Used stored values
 // From version 15 settings can be saved. This means, that even when updating software or reloading firmware settings will remain
 // If you want to load the settings from this code, please change this value to 1, upload the code, change the value to 0 and upload again.
-// 1 = reset/reload values, 0 = don't reload values. 
+// 1 = reset/reload values, 0 = don't reload values.
 #define reset_values 0
 
 // From software version 15 a menu can be used for configuration. You only need a single button. If no button is used, menu should be turned off.
@@ -130,18 +129,17 @@
 //======================================================
 // Set alarms. Will blink when value is exceeded
 //======================================================
-// Voltage alarm (voltage will blink if it drops below the given value). To avoid decimal, use a factor 10 higher value, meaning 10 volt = 100, 8 Volt = 80 etc. 
+// Voltage alarm (voltage will blink if it drops below the given value). To avoid decimal, use a factor 10 higher value, meaning 10 volt = 100, 8 Volt = 80 etc.
 #define volt_alarm_ 100 // 100 = 10 volt
 
-// mah alarm. mah will blink if it exceeds the defined value. Should be written in mah, meaning 2000 mah = 2000. 
+// mah alarm. mah will blink if it exceeds the defined value. Should be written in mah, meaning 2000 mah = 2000.
 #define mah_alarm_ 2000
 
-// los alarm. los-number will blink if it exceeds the defined value. Should be written in meter, meaning 2000 meter = 2000, 4 km = 4000 etc. 
+// los alarm. los-number will blink if it exceeds the defined value. Should be written in meter, meaning 2000 meter = 2000, 4 km = 4000 etc.
 #define los_alarm_ 2000
 
-// Altitude alarm. altitude-number will blink if it exceeds the defined value. Should be written in meter, meaning 2000 meter = 2000, 4 km = 4000 etc. 
+// Altitude alarm. altitude-number will blink if it exceeds the defined value. Should be written in meter, meaning 2000 meter = 2000, 4 km = 4000 etc.
 #define alt_alarm_ 1100
-
 
 
 //========================================================================
@@ -158,7 +156,7 @@
   #define gps_nmea_line 32
   #define summaryline 102
   #define current_calc_line 292
-#else 
+#else
   //NTSC
   #define toplinetext 24
   #define toplinenumbers 34
@@ -169,47 +167,41 @@
   #define current_calc_line 260
 #endif
 
-// Arduino
-#if (CONTROLLER == 0)
+#if (CONTROLLER == 0) // Arduino
 
-// Input from current-sensor and voltage-divider
+  // Input from current-sensor and voltage-divider
   #define voltage_divider_input 1
   #define current_sensor_input 2
 
-
 #if (dim_on == 1)
-// This is used for dimming. can be changed to another pin if you want. 
+  // This is used for dimming. can be changed to another pin if you want.
   #define DimOn  DDRB |= 0b00000001;
   #define DimOff DDRB &= 0b11111110;
 #else
   #define DimOn  DDRB |= 0b00000000;
   #define DimOff DDRB &= 0b11111111;
-#endif  
-  
+#endif
+
   #define little_delay
-  
-  
- // SimpleOSD XL 16 mhz
-#else
-         
+
+#else // SimpleOSD XL 16 mhz
+
   // Input from current-sensor and voltage-divider
   #define voltage_divider_input 7
   #define current_sensor_input 4
-  
+
 #if (dim_on == 1)
-// This is used for dimming. can be changed to another pin if you want. 
- //define SimpleOSD OPEN's dim pin C5
+  // This is used for dimming. can be changed to another pin if you want.
+  //define SimpleOSD OPEN's dim pin C5
   #define DimOn  DDRC |= 0b00100000;
   #define DimOff DDRC &= 0b11011111;
 #else
   #define DimOn  DDRB |= 0b00000000;
   #define DimOff DDRB &= 0b11111111;
-#endif    
-  
+#endif
 
-  
   #define little_delay _delay_loop_1(13);
-  
+
 #endif
 
 #define mux_currentSens ADMUX = (0<<MUX3) | (0<<MUX2) | (0<<MUX1) | (current_sensor_input<<MUX0) | (1<<REFS0) |(0<<REFS1);
@@ -217,21 +209,21 @@
 #define mux_rssi ADMUX = (0<<MUX3) | (0<<MUX2) | (0<<MUX1) | (rssi_input<<MUX0) | (1<<REFS0) |(0<<REFS1);
 
 // Lets define some delays
-#define delay15 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay14 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay13 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay12 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay11 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay10 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay9  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay8  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay7  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay6  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay5  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay4  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t"); 
-#define delay3  __asm__("nop\n\t""nop\n\t""nop\n\t"); 
-#define delay2  __asm__("nop\n\t""nop\n\t"); 
-#define delay1  __asm__("nop\n\t"); 
+#define delay15 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay14 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay13 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay12 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay11 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay10 __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay9  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay8  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay7  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay6  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay5  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay4  __asm__("nop\n\t""nop\n\t""nop\n\t""nop\n\t");
+#define delay3  __asm__("nop\n\t""nop\n\t""nop\n\t");
+#define delay2  __asm__("nop\n\t""nop\n\t");
+#define delay1  __asm__("nop\n\t");
 
 #define BAUD_SETTINGS F_CPU/16/BAUD-1
 

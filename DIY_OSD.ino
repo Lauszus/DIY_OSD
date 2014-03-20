@@ -55,11 +55,11 @@ void setup() {
 
   // Used to set the GPS update-rate to 5 hz, and GPGGA and GPRMC gps-strings (Only for MKT-GPS).
 
-  Serial.print("$PMTK300,200,0,0,0,0*2F");
+  Serial.print(F("$PMTK300,200,0,0,0,0*2F"));
   Serial.write(13);
   Serial.write(10);
 
-  Serial.print("$PMTK314,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*28");
+  Serial.print(F("$PMTK314,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*28"));
   Serial.write(13);
   Serial.write(10);
 
@@ -88,44 +88,35 @@ void setup() {
   TIMSK1 = 0;
   TIMSK2 = 0;
 
-  // If Arduino is used
-  if (CONTROLLER == 0) {
-    // Init analog comparator to register new line and frame
-    ADCSRB = 0b00000001; // Set analog comparator mode
+#if CONTROLLER == 0 // If Arduino is used
+  // Init analog comparator to register new line and frame
+  ADCSRB = 0b00000001; // Set analog comparator mode
 
-    ACSR = 0b00001011; //Enable Analog comparator interrupt
+  ACSR = 0b00001011; // Enable Analog comparator interrupt
 
-    // Set interrupt on falling output edge.
-    ADCSRA |= (1 << ADSC);
+  // Set interrupt on falling output edge.
+  ADCSRA |= (1 << ADSC);
 
-    // Start timer 2 - used to determine if it's a new frame or line.
-    TCCR2B =
-      (0 << CS22) | //Prescale 1024
-      (0 << CS21) | //Prescale 1024
-      (1 << CS20) | //Prescale 1024
-      (0 << WGM22); // CTC mode (Clear timer on compare match)
+  // Start timer 2 - used to determine if it's a new frame or line.
+  TCCR2B =
+    (0 << CS22) | //Prescale 1024
+    (0 << CS21) | //Prescale 1024
+    (1 << CS20) | //Prescale 1024
+    (0 << WGM22); // CTC mode (Clear timer on compare match)
 
-    // Button with internal pull-up.
-    pinMode(Buttonpin_, INPUT);
-    digitalWrite(Buttonpin_, HIGH);
-  }
+  // Button with internal pull-up.
+  pinMode(Buttonpin_, INPUT);
+  digitalWrite(Buttonpin_, HIGH);
+#elif CONTROLLER == 1 // If SimpleOSD/LM1881
+  attachInterrupt(0, detectline, FALLING);
+  attachInterrupt(1, detectframe, RISING);
+  pinMode(5, OUTPUT);
+  digitalWrite(5, HIGH); // Turn on the led
 
-  // If SimpleOSD/LM1881
-  if (CONTROLLER == 1) {
-    attachInterrupt(0, detectline, FALLING);
-    attachInterrupt(1, detectframe, RISING);
-    pinMode(5, OUTPUT);
-    digitalWrite(5, HIGH); // Turn on the led
-
-    // Button with internal pull-up.
-    pinMode(6, INPUT);
-    digitalWrite(6, HIGH);
-
-  }
-
-
-
-
+  // Button with internal pull-up.
+  pinMode(6, INPUT);
+  digitalWrite(6, HIGH);
+#endif
 
   // If the controller have not been configured yet.
   if ((EEPROM.read(0) != 52) | (reset_values == 1)) {
@@ -159,20 +150,14 @@ void setup() {
     EEPROM.write(16, (unsigned char) mah_alarm_);
     EEPROM.write(17, (unsigned char) (mah_alarm_ >> 8));
   }
-
-
-
-
-
 }
-
-
 
 // ====================================================================================================================================================================================================================
 // ====================================================================================================================================================================================================================
 // ====================================================================================================================================================================================================================
 // ====================================================================================================================================================================================================================
 // Analog comparator interrupt:
+#if CONTROLLER == 0 // If Arduino is used
 ISR(ANALOG_COMP_vect) {
   // Reset counter
   TCNT2 = 0;
@@ -189,7 +174,7 @@ ISR(ANALOG_COMP_vect) {
 
   detectline();
 }
-
+#endif
 
 // ====================================================================================================================================================================================================================
 // ====================================================================================================================================================================================================================
@@ -198,9 +183,4 @@ ISR(ANALOG_COMP_vect) {
 
 void loop() {
   gps();
-
 }
-
-
-
-

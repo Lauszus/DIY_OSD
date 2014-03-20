@@ -1,5 +1,3 @@
-
-
 #include "gps.h"
 #include "config.h"
 
@@ -10,11 +8,6 @@
 #include <EEPROM.h>
 
 #include <math.h>
-
-
-
-
-
 
 unsigned char Buttonpin = Buttonpin_;
 
@@ -104,8 +97,6 @@ int volt_alarm = EEPROM.read(14) + (EEPROM.read(15) << 8);
 int mah_alarm = EEPROM.read(16) + (EEPROM.read(17) << 8);
 
 
-
-
 //========================================
 // Variables when analyzing serial data (GPS)
 //========================================
@@ -116,10 +107,6 @@ int mah_alarm = EEPROM.read(16) + (EEPROM.read(17) << 8);
 int bufnr = 0; // Bytes are stored in an array. bufnr "counts the characters"
 int n = 0;
 int count = 0;
-
-
-
-
 
 
 //========================================
@@ -140,9 +127,6 @@ unsigned char altituder[10] = {1, 1, 1, 1, 1, 1, 1, 1};
 unsigned char altituder2[10] = {1, 1, 1, 1, 1, 1, 1, 1};
 long altitude_offset = 0;
 int altitude_negative = 0;
-
-
-
 
 
 //========================================
@@ -186,16 +170,13 @@ int current_num = 0;
 unsigned int mahkm = 0;
 unsigned char mahkmr[] = {3, 3, 3, 3, 3, 3};
 
-
-
-
 void gps() {
-
+#if Usebutton == 1
   if (CONTROLLER == 1) {
     Buttonpin = 6;
   }
 
-  if (CONTROLLER == 1 | Usebutton == 1) {
+  if (CONTROLLER == 1 || Usebutton == 1) {
     if (digitalRead(Buttonpin) == LOW) {
 
       GPSbuffer[0] = ((alt_alarm / 1000) + 3) << 3;
@@ -218,13 +199,9 @@ void gps() {
       GPSbuffer[14] = ((mah_alarm % 1000 % 100 / 10) + 3) << 3;
       GPSbuffer[15] = ((mah_alarm % 1000 % 100 % 10) + 3) << 3;
 
-
-
       menuon = 1;
 
       while (menuon == 1) {
-
-
         if (digitalRead(Buttonpin) == LOW) {
           move_arrow_count = -25;
           while (digitalRead(Buttonpin) == LOW) {
@@ -263,15 +240,11 @@ void gps() {
 
             EEPROM.write(16, (unsigned char) mah_alarm);
             EEPROM.write(17, (unsigned char) (mah_alarm >> 8));
-
-
           }
 
           if (menupos == 6 & menu == 1) {
             menu = 2;
-
           }
-
           else if (menupos == 1 & menu == 1) {
             if (show_mah_km == 1) {
               show_mah_km = 0;
@@ -279,10 +252,7 @@ void gps() {
             else {
               show_mah_km = 1;
             }
-
           }
-
-
           else if (menupos == 2 & menu == 1) {
             if (show_decimals == 1) {
               show_decimals = 0;
@@ -290,11 +260,7 @@ void gps() {
             else {
               show_decimals = 1;
             }
-
           }
-
-
-
           else if (menupos == 3 & menu == 1) {
             if (altitude_offset_on == 1) {
               altitude_offset_on  = 0;
@@ -302,20 +268,14 @@ void gps() {
             else {
               altitude_offset_on = 1;
             }
-
           }
-
-
           else if (menupos == 4 & menu == 1) {
             align_text++;
 
             if (align_text > 40) {
               align_text = 2;
             }
-
           }
-
-
           else if (menupos == 5 & menu == 1) {
             if (show_plane_pos == 1) {
               show_plane_pos  = 0;
@@ -323,29 +283,18 @@ void gps() {
             else {
               show_plane_pos = 1;
             }
-
           }
-
-
-
-
-
           else if (menupos == 1 & menu == 2) {
             alt_alarm = alt_alarm + 50;
 
             if (alt_alarm > 2500) {
-
               alt_alarm = 0;
             }
-
             GPSbuffer[0] = ((alt_alarm / 1000) + 3) << 3;
             GPSbuffer[1] = ((alt_alarm % 1000 / 100) + 3) << 3;
             GPSbuffer[2] = ((alt_alarm % 1000 % 100 / 10) + 3) << 3;
             GPSbuffer[3] = ((alt_alarm % 1000 % 100 % 10) + 3) << 3;
-
           }
-
-
           else if (menupos == 2 & menu == 2) {
             los_alarm = los_alarm + 50;
 
@@ -357,10 +306,7 @@ void gps() {
             GPSbuffer[5] = ((los_alarm % 1000 / 100) + 3) << 3;
             GPSbuffer[6] = ((los_alarm % 1000 % 100 / 10) + 3) << 3;
             GPSbuffer[7] = ((los_alarm % 1000 % 100 % 10) + 3) << 3;
-
           }
-
-
           else if (menupos == 3 & menu == 2) {
             volt_alarm = volt_alarm + 1;
 
@@ -372,9 +318,7 @@ void gps() {
             GPSbuffer[9] = ((volt_alarm % 1000 / 100) + 3) << 3;
             GPSbuffer[10] = ((volt_alarm % 1000 % 100 / 10) + 3) << 3;
             GPSbuffer[11] = ((volt_alarm % 1000 % 100 % 10) + 3) << 3;
-
           }
-
           else if (menupos == 4 & menu == 2) {
             mah_alarm = mah_alarm + 100;
 
@@ -386,33 +330,15 @@ void gps() {
             GPSbuffer[13] = ((mah_alarm % 1000 / 100) + 3) << 3;
             GPSbuffer[14] = ((mah_alarm % 1000 % 100 / 10) + 3) << 3;
             GPSbuffer[15] = ((mah_alarm % 1000 % 100 % 10) + 3) << 3;
-
           }
-
           else if (menupos == 5 & menu == 2) {
             menu = 1;
           }
-
-
-
-
-
         }
-
-
-
-
-
       }
-
-
-
     }
-
   }
-
-
-
+#endif
 
   while (1 == 1) {
 
@@ -561,7 +487,6 @@ void gps() {
           //===================================================
 
 
-
           //===================================================
           // Calculate LOS and heading
           //===================================================
@@ -625,13 +550,7 @@ void gps() {
               homehead_r[0] = ((homehead / 100) + 3) << 5;
               homehead_r[1] = ((homehead % 100 / 10) + 3) << 5;
               homehead_r[2] = ((homehead % 100 % 10) + 3) << 5;
-
-
             }
-
-
-
-
 
             //Last part.. Need to calculate which way
             // the arrow needs to point.
@@ -722,7 +641,6 @@ void gps() {
 
           }
 
-
           if (altitude[0] < 14) {
 
             altitude_num = 0;
@@ -749,7 +667,6 @@ void gps() {
               else {
                 altitude_negative = 0;
               }
-
             }
 
             altitude_num2 = altitude_num;
@@ -758,7 +675,6 @@ void gps() {
             altituder[2] = (( (altitude_num % 10000) % 1000) / 100) + 3;
             altituder[3] = ((((altitude_num % 10000) % 1000) % 100) / 10) + 3;
             altituder[4] = ((((altitude_num % 10000) % 1000) % 100) % 10) + 3;
-
 
             if (altitude_num > max_alt) {
               max_alt = altitude_num;
@@ -772,7 +688,6 @@ void gps() {
             }
 
           }
-
 
           // Add time
           if (time[5] != last_time) {
@@ -801,9 +716,6 @@ void gps() {
             avg_speedr[3] = (((avg_speed % 1000) % 100) % 10) + 3;
 
           }
-
-
-
 
           //===================================================
           // Flight summary END
@@ -837,7 +749,6 @@ void gps() {
             }
           }
 
-
           //===================================================
           // End set homeposition
           //===================================================
@@ -866,25 +777,10 @@ void gps() {
             mahkmr[2] = (((mahkm % 1000) % 100) / 10) + 3;
             mahkmr[3] = (((mahkm % 1000) % 100) % 10) + 3;
           }
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
         // ====================================================================================
         // Second GPS String END
         // ====================================================================================
-
-
 
         // Check if the line is the GGA nmea GPS-line:
 
@@ -908,36 +804,25 @@ void gps() {
               n = 0;
               count++;
             }
-
             else {
               switch (count) {
-
                 case 6:
                   GPSfix = GPSbuffer[i];
                   break;
-
                 case 7:
                   satellites[n] = GPSbuffer[i] - 45;
                   break;
-
                 case 9:
                   altitude[n] = GPSbuffer[i] - 45;
                   break;
-
                 default: break;
-
               }
-
               if (count == 10) {
                 break;
               }
-
               n++;
-
-
             }
           }
-
           altitude2[0] = altitude[0];
           altitude2[1] = altitude[1];
           altitude2[2] = altitude[2];
@@ -950,21 +835,14 @@ void gps() {
 
         }
 
-
-
         // No matter what has been received, count and bufnr is reset
         // to be ready to receive the next GPS string.
         count = 0;
         bufnr = 0;
-
       }
       if (bufnr > 98) {
         bufnr = 0;
       }
-
-
     }
-
   }
-
 }

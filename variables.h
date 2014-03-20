@@ -1,12 +1,8 @@
-
 #ifndef __variables_H
 #define __variables_H
 
-
 #include "config.h"
 #include <EEPROM.h>
-
-
 
 unsigned char toptext[12] = {'S' - 64, 'P' - 64, 'E' - 64, 'E' - 64, 'D' - 64, 'L' - 64, 'O' - 64, 'S' - 64, 'A' - 64, 'L' - 64, 'T' - 64, 20};
 
@@ -20,9 +16,6 @@ int i = 0;
 int k = 0;
 
 unsigned char ii = 0;
-
-
-
 
 //========================================
 // Data for mAh
