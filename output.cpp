@@ -1382,7 +1382,8 @@ void detectline() {
 
         buffer[7] = (0 + 3) << 3;
         buffer[8] = (1 + 3) << 3;
-        buffer[9] = (8 + 3) << 3;
+        buffer[9] = (9 + 3) << 3;
+        buffer[10] = 0; // 'b'
 
         DimOn;
         for (unsigned char ij = 0; ij < 7; ij++) {
@@ -1398,6 +1399,8 @@ void detectline() {
         SPDR = pgm_read_byte(&numbers[(buffer[8]) + (temp)]);
         delay15
         SPDR = pgm_read_byte(&numbers[(buffer[9]) + (temp)]);
+        delay15
+        SPDR = pgm_read_byte(&smallLetters[(buffer[10]) + (temp)]);
         delay15
         DimOff
       }

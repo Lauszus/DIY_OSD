@@ -3,6 +3,18 @@
 
 #include <avr/pgmspace.h>
 
+const uint8_t smallLetters[] PROGMEM = {
+  // b - 0
+  0b00000000,
+  0b01000000,
+  0b01000000,
+  0b01000000,
+  0b01111110,
+  0b01000010,
+  0b01000010,
+  0b01111110
+};
+
 const uint8_t letters[] PROGMEM = {
   // Blank - 0
   0b00000000,
