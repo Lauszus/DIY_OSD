@@ -85,12 +85,12 @@ void detectline() {
              SPDR = 0b11111110;
              _delay_loop_1(20);
              for (unsigned char j =0; j<5;j++) {
-             SPDR = letters[toptext[j]<<3+temp];
+             SPDR = pgm_read_byte(&letters[toptext[j]<<3+temp];
              delay14;
 
              }
              delay15;
-             SPDR = letters[(toptext[4]<<3)+(temp)];
+             SPDR = pgm_read_byte(&letters[(toptext[4]<<3)+(temp)];
 
 
          }
@@ -163,56 +163,56 @@ void detectline() {
 
     else {
       _delay_loop_1(6);
-      SPDR = LargeNumbers[buffer2[0] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[0] + 2 * temp]);
       DimOn;
       delay13
 
-      SPDR = LargeNumbers[buffer2[0] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[0] + 2 * temp + 1]);
       delay8
 
-      SPDR = LargeNumbers[buffer2[1] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[1] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[1] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[1] + 2 * temp + 1]);
       delay15
 
-      SPDR = LargeNumbers[64 + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[64 + 2 * temp]);
       delay8
 
 
-      SPDR = LargeNumbers[buffer2[2] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[2] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[2] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[2] + 2 * temp + 1]);
       delay8
 
-      SPDR = LargeNumbers[buffer2[3] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[3] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[3] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[3] + 2 * temp + 1]);
       delay15
       DimOff;
 
 
       if (show_plane_pos == 1) {
         _delay_loop_1(44);
-        SPDR = LargeNumbers[homehead_r[0] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[homehead_r[0] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[homehead_r[0] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[homehead_r[0] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[homehead_r[1] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[homehead_r[1] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[homehead_r[1] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[homehead_r[1] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[homehead_r[2] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[homehead_r[2] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[homehead_r[2] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[homehead_r[2] + 2 * temp + 1]);
         delay15
 
         DimOff;
@@ -229,29 +229,29 @@ void detectline() {
 
         _delay_loop_1(41); // 126
         delay1
-        SPDR = LargeNumbers[mahkm_buf[0] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[0] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[mahkm_buf[0] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[0] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[mahkm_buf[1] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[1] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[mahkm_buf[1] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[1] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[mahkm_buf[2] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[2] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[mahkm_buf[2] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[2] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[mahkm_buf[3] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[3] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[mahkm_buf[3] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[mahkm_buf[3] + 2 * temp + 1]);
         delay15
 
         DimOff;
@@ -333,32 +333,32 @@ void detectline() {
       // Writes Speed
 
       if (show_decimals == 1) {
-        SPDR = LargeNumbers[buffer3[0] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[0] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[buffer3[0] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[0] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[buffer3[1] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[1] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[1] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[1] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[2] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[2] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[2] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[2] + 2 * temp + 1]);
 
 
         if (buffer3[3] != 448) {
           delay2
-          SPDR = LargeNumbers[buffer3[3] + 2 * temp];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[3] + 2 * temp]);
           delay15
 
-          SPDR = LargeNumbers[buffer3[3] + 2 * temp + 1];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[3] + 2 * temp + 1]);
           delay4
         }
 
@@ -369,10 +369,10 @@ void detectline() {
         }
 
         if (buffer3[4] != 448) {
-          SPDR = LargeNumbers[buffer3[4] + 2 * temp];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[4] + 2 * temp]);
           delay15
 
-          SPDR = LargeNumbers[buffer3[4] + 2 * temp + 1];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[4] + 2 * temp + 1]);
           delay15
           DimOff;
         }
@@ -387,24 +387,24 @@ void detectline() {
       }
 
       else {
-        SPDR = LargeNumbers[buffer3[0] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[0] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[buffer3[0] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[0] + 2 * temp + 1]);
         delay8
 
-        SPDR = LargeNumbers[buffer3[1] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[1] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[1] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[1] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[2] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[2] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[2] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[2] + 2 * temp + 1]);
         delay15
 
         DimOff;
@@ -420,11 +420,11 @@ void detectline() {
 
 
       if (buffer3[5] != 448) {
-        SPDR = LargeNumbers[buffer3[5] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[5] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[buffer3[5] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[5] + 2 * temp + 1]);
         delay4
       }
 
@@ -432,25 +432,25 @@ void detectline() {
         _delay_loop_1(12);
       }
 
-      SPDR = LargeNumbers[buffer3[6] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer3[6] + 2 * temp]);
       DimOn;
       delay13
 
-      SPDR = LargeNumbers[buffer3[6] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer3[6] + 2 * temp + 1]);
       delay8
 
 
-      SPDR = LargeNumbers[buffer3[7] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer3[7] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer3[7] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer3[7] + 2 * temp + 1]);
       delay8
 
       if (buffer3[8] != 448) {
-        SPDR = LargeNumbers[buffer3[8] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[8] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[8] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[8] + 2 * temp + 1]);
         delay15
         DimOff;
       }
@@ -465,10 +465,10 @@ void detectline() {
 
       // Let's draw the arrow.
 
-      SPDR = HomeArrow[buffer2[11] + 2 * temp];
+      SPDR = pgm_read_byte(&HomeArrow[buffer2[11] + 2 * temp]);
       DimOn;
       delay13
-      SPDR = HomeArrow[buffer2[11] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&HomeArrow[buffer2[11] + 2 * temp + 1]);
       delay15
       DimOff;
 
@@ -479,11 +479,11 @@ void detectline() {
         //              _delay_loop_1(13);
 
         if (buffer3[9] != 448) {
-          SPDR = LargeNumbers[buffer3[9] + 2 * temp];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[9] + 2 * temp]);
           DimOn;
           delay13
 
-          SPDR = LargeNumbers[buffer3[9] + 2 * temp + 1];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[9] + 2 * temp + 1]);
           //               delay4
         }
 
@@ -492,11 +492,11 @@ void detectline() {
         }
 
         if (buffer3[10] != 448) {
-          SPDR = LargeNumbers[buffer3[10] + 2 * temp];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[10] + 2 * temp]);
           DimOn;
           delay13
 
-          SPDR = LargeNumbers[buffer3[10] + 2 * temp + 1];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[10] + 2 * temp + 1]);
           //               delay4
         }
 
@@ -505,11 +505,11 @@ void detectline() {
         }
 
         if (buffer3[11] != 448) {
-          SPDR = LargeNumbers[buffer3[11] + 2 * temp];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[11] + 2 * temp]);
           DimOn;
           delay13
 
-          SPDR = LargeNumbers[buffer3[11] + 2 * temp + 1];
+          SPDR = pgm_read_byte(&LargeNumbers[buffer3[11] + 2 * temp + 1]);
           delay8
         }
 
@@ -518,57 +518,57 @@ void detectline() {
           delay4
         }
 
-        SPDR = LargeNumbers[buffer3[12] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[12] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[buffer3[12] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[12] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[13] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[13] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[13] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[13] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[14] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[14] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[14] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[14] + 2 * temp + 1]);
         delay15
         DimOff;
       }
 
       else {
         _delay_loop_1(37);
-        SPDR = LargeNumbers[buffer3[9] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[9] + 2 * temp]);
         DimOn;
         delay13
 
-        SPDR = LargeNumbers[buffer3[9] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[9] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[10] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[10] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[10] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[10] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[11] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[11] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[11] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[11] + 2 * temp + 1]);
         delay8
 
 
-        SPDR = LargeNumbers[buffer3[12] + 2 * temp];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[12] + 2 * temp]);
         delay15
 
-        SPDR = LargeNumbers[buffer3[12] + 2 * temp + 1];
+        SPDR = pgm_read_byte(&LargeNumbers[buffer3[12] + 2 * temp + 1]);
         delay15
         DimOff;
       }
@@ -625,14 +625,14 @@ void detectline() {
       //     _delay_loop_1(3);
       if (temp > 8) {
         delay5
-        SPDR = letters[(3 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(3 << 3) + (temp - 8)]);
         DimOn;
         delay12
 
-        SPDR = letters[(21 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(21 << 3) + (temp - 8)]);
         delay13
 
-        SPDR = letters[(18 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(18 << 3) + (temp - 8)]);
         delay2
       }
 
@@ -641,28 +641,28 @@ void detectline() {
         delay3
       }
 
-      SPDR = LargeNumbers[buffer2[0] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[0] + 2 * temp]);
       DimOn;
       delay13
 
-      SPDR = LargeNumbers[buffer2[0] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[0] + 2 * temp + 1]);
       delay8
 
-      SPDR = LargeNumbers[buffer2[1] + 2 * temp];
+      SPDR =  pgm_read_byte(&LargeNumbers[buffer2[1] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[1] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[1] + 2 * temp + 1]);
       delay15
 
-      SPDR = LargeNumbers[480 + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[480 + 2 * temp]);
       delay8
-      //               SPDR = LargeNumbers[32+2*temp+1];
+      //               SPDR = pgm_read_byte(&LargeNumbers[32+2*temp+1];
       //               delay13
 
-      SPDR = LargeNumbers[buffer2[2] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[2] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[2] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[2] + 2 * temp + 1]);
       delay15
       DimOff;
 
@@ -673,14 +673,14 @@ void detectline() {
 
       if (temp > 8) {
         delay5
-        SPDR = letters[(22 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(22 << 3) + (temp - 8)]);
         DimOn;
         delay12
 
-        SPDR = letters[(12 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(12 << 3) + (temp - 8)]);
         delay13
 
-        SPDR = letters[(20 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(20 << 3) + (temp - 8)]);
         delay5
       }
 
@@ -689,27 +689,27 @@ void detectline() {
         delay8
       }
 
-      SPDR = LargeNumbers[buffer2[8] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[8] + 2 * temp]);
       DimOn;
       delay13
 
-      SPDR = LargeNumbers[buffer2[8] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[8] + 2 * temp + 1]);
       delay8
 
-      SPDR = LargeNumbers[buffer2[9] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[9] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[9] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[9] + 2 * temp + 1]);
       delay15
       delay2
 
-      SPDR = LargeNumbers[480 + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[480 + 2 * temp]);
       delay8
 
-      SPDR = LargeNumbers[buffer2[10] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[10] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[10] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[10] + 2 * temp + 1]);
       delay15
       DimOff;
 
@@ -721,14 +721,14 @@ void detectline() {
       _delay_loop_1(20);
 
       if (temp > 7) {
-        SPDR = letters[(13 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(13 << 3) + (temp - 8)]);
         DimOn;
         delay13
 
-        SPDR = letters[(1 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(1 << 3) + (temp - 8)]);
         delay15
 
-        SPDR = letters[(8 << 3) + (temp - 8)];
+        SPDR = pgm_read_byte(&letters[(8 << 3) + (temp - 8)]);
         delay11
       }
       else {
@@ -737,32 +737,32 @@ void detectline() {
       }
 
 
-      SPDR = LargeNumbers[buffer2[4] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[4] + 2 * temp]);
       DimOn;
       delay15
 
-      SPDR = LargeNumbers[buffer2[4] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[4] + 2 * temp + 1]);
       delay8
 
 
-      SPDR = LargeNumbers[buffer2[5] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[5] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[5] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[5] + 2 * temp + 1]);
       delay8
 
 
-      SPDR = LargeNumbers[buffer2[6] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[6] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[6] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[6] + 2 * temp + 1]);
       delay8
 
 
-      SPDR = LargeNumbers[buffer2[7] + 2 * temp];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[7] + 2 * temp]);
       delay15
 
-      SPDR = LargeNumbers[buffer2[7] + 2 * temp + 1];
+      SPDR = pgm_read_byte(&LargeNumbers[buffer2[7] + 2 * temp + 1]);
       delay15
       DimOff;
 
@@ -806,21 +806,21 @@ void detectline() {
 
 
     // Updates SPDR (SPI buffer)
-    SPDR = letters[(buffer[0]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[0]) + (temp)]);
     DimOn;
     // Adds delay before the SPI buffer can be updated again.
     delay12
 
-    SPDR = letters[(buffer[1]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[1]) + (temp)]);
     delay12
 
-    SPDR = letters[(buffer[2]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[2]) + (temp)]);
     delay13
 
-    SPDR = letters[(buffer[3]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[3]) + (temp)]);
     delay13
 
-    SPDR = letters[(buffer[4]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[4]) + (temp)]);
     delay13
     DimOff;
 
@@ -833,14 +833,14 @@ void detectline() {
     buffer[2] = (toptext[7]) << 3;
 
 
-    SPDR = letters[(buffer[0]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[0]) + (temp)]);
     DimOn;
     delay12
 
-    SPDR = letters[(buffer[1]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[1]) + (temp)]);
     delay13
 
-    SPDR = letters[(buffer[2]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[2]) + (temp)]);
     delay13
     DimOff;
 
@@ -851,14 +851,14 @@ void detectline() {
     buffer[1] = (toptext[9]) << 3;
     buffer[2] = (toptext[10]) << 3;
 
-    SPDR = letters[(buffer[0]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[0]) + (temp)]);
     DimOn;
     delay13
 
-    SPDR = letters[(buffer[1]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[1]) + (temp)]);
     delay13
 
-    SPDR = letters[(buffer[2]) + (temp)];
+    SPDR = pgm_read_byte(&letters[(buffer[2]) + (temp)]);
     delay13
     DimOff;
   }
@@ -912,7 +912,7 @@ void detectline() {
           else {
             _delay_loop_1(40);
             if (menupos == 1) {
-              SPDR = 0b11111100; numbers[0 + (temp)];
+              SPDR = 0b11111100; //numbers[0 + (temp)];
               _delay_loop_1(3);
             }
             else {
@@ -922,13 +922,13 @@ void detectline() {
 
             DimOn;
             for (unsigned char ij = 0; ij < 6; ij++) {
-              SPDR = letters[buffer[ij] + (temp)];
+              SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
               _delay_loop_1(2);
             }
 
             _delay_loop_1(45);
             buffer[8] = (show_mah_km + 3) << 3;
-            SPDR = numbers[buffer[8] + (temp)];
+            SPDR = pgm_read_byte(&numbers[buffer[8] + (temp)]);
             _delay_loop_1(3);
 
             DimOff;
@@ -963,13 +963,13 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 8; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
 
           _delay_loop_1(31);
           buffer[8] = (show_decimals + 3) << 3;
-          SPDR = numbers[buffer[8] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[8] + (temp)]);
           delay14
 
           DimOff;
@@ -1006,13 +1006,13 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 10; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
 
           _delay_loop_1(19);
           buffer[8] = (altitude_offset_on + 3) << 3;
-          SPDR = numbers[buffer[8] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[8] + (temp)]);
           delay14
 
           DimOff;
@@ -1058,15 +1058,15 @@ void detectline() {
 
             DimOn;
             for (unsigned char ij = 0; ij < 10; ij++) {
-              SPDR = letters[buffer[ij] + (temp)];
+              SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
               _delay_loop_1(2);
             }
 
 
             _delay_loop_1(15);
-            SPDR = numbers[buffer[10] + (temp)];
+            SPDR = pgm_read_byte(&numbers[buffer[10] + (temp)]);
             delay15
-            SPDR = numbers[buffer[11] + (temp)];
+            SPDR = pgm_read_byte(&numbers[buffer[11] + (temp)]);
             delay14
 
             DimOff;
@@ -1102,13 +1102,13 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 8; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
 
           _delay_loop_1(32);
           buffer[8] = (show_plane_pos + 3) << 3;
-          SPDR = numbers[buffer[8] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[8] + (temp)]);
           delay14
           DimOff
 
@@ -1144,7 +1144,7 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 10; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
           _delay_loop_1(2);
@@ -1177,7 +1177,7 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 4; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(5);
           }
           DimOff;
@@ -1228,13 +1228,13 @@ void detectline() {
 
             DimOn;
             for (unsigned char ij = 0; ij < 10; ij++) {
-              SPDR = letters[buffer[ij] + (temp)];
+              SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
               _delay_loop_1(2);
             }
 
             _delay_loop_1(10);
             for (unsigned char ij = 0; ij < 4; ij++) {
-              SPDR = numbers[GPSbuffer[ij] + (temp)];
+              SPDR = pgm_read_byte(&numbers[GPSbuffer[ij] + (temp)]);
               _delay_loop_1(4);
             }
             _delay_loop_1(3);
@@ -1271,13 +1271,13 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 9; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
 
           _delay_loop_1(16);
           for (unsigned char ij = 4; ij < 8; ij++) {
-            SPDR = numbers[GPSbuffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&numbers[GPSbuffer[ij] + (temp)]);
             _delay_loop_1(4);
           }
           _delay_loop_1(3);
@@ -1315,13 +1315,13 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 10; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
 
           _delay_loop_1(18);
           for (unsigned char ij = 9; ij < 12; ij++) {
-            SPDR = numbers[GPSbuffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&numbers[GPSbuffer[ij] + (temp)]);
             _delay_loop_1(4);
           }
           _delay_loop_1(3);
@@ -1367,13 +1367,13 @@ void detectline() {
 
             DimOn;
             for (unsigned char ij = 0; ij < 9; ij++) {
-              SPDR = letters[buffer[ij] + (temp)];
+              SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
               _delay_loop_1(2);
             }
 
             _delay_loop_1(17);
             for (unsigned char ij = 12; ij < 16; ij++) {
-              SPDR = numbers[GPSbuffer[ij] + (temp)];
+              SPDR = pgm_read_byte(&numbers[GPSbuffer[ij] + (temp)]);
               _delay_loop_1(4);
             }
             _delay_loop_1(3);
@@ -1409,7 +1409,7 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 4; ij++) {
-            SPDR = letters[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
             _delay_loop_1(4);
           }
           DimOff;
@@ -1448,16 +1448,16 @@ void detectline() {
 
         DimOn;
         for (unsigned char ij = 0; ij < 3; ij++) {
-          SPDR = letters[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(5);
         }
 
         // Writes ':'
-        SPDR = numbers[104 + temp];
+        SPDR = pgm_read_byte(&numbers[104 + temp]);
         _delay_loop_1(10);
 
         for (unsigned char ij = 3; ij < 5; ij++) {
-          SPDR = numbers[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
           _delay_loop_1(5);
         }
         _delay_loop_1(2);
@@ -1480,11 +1480,11 @@ void detectline() {
 
         DimOn;
         for (unsigned char ij = 0; ij < 7; ij++) {
-          SPDR = letters[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(2);
         }
 
-        SPDR = numbers[104 + temp];
+        SPDR = pgm_read_byte(&numbers[104 + temp]);
         _delay_loop_1(6);
 
         if (GPSfix > '0') {
@@ -1503,7 +1503,7 @@ void detectline() {
         }
 
         for (unsigned char ij = 0; ij < 3; ij++) {
-          SPDR = letters[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(4);
         }
         _delay_loop_1(3);
@@ -1547,7 +1547,7 @@ void detectline() {
 
         DimOn;
         for (unsigned char ij = 10; ij < 15; ij++) {
-          SPDR = letters[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(2);
 
         }
@@ -1555,7 +1555,7 @@ void detectline() {
 
 
         // Writes ':'
-        SPDR = numbers[104 + temp];
+        SPDR = pgm_read_byte(&numbers[104 + temp]);
         _delay_loop_1(9);
 
         DimOff;
@@ -1571,7 +1571,7 @@ void detectline() {
 
 
         for (unsigned char ij = 0; ij < 10; ij++) {
-          SPDR = letters[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           DimOn;
           _delay_loop_1(3);
         }
@@ -1598,28 +1598,28 @@ void detectline() {
 
           DimOn;
           for (unsigned char ij = 0; ij < 2; ij++) {
-            SPDR = numbers[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
             _delay_loop_1(3);
           }
 
 
 
           _delay_loop_1(3);
-          SPDR = numbers[(104) + (temp)];
+          SPDR = pgm_read_byte(&numbers[(104) + (temp)]);
 
           _delay_loop_1(4);
           for (unsigned char ij = 2; ij < 4; ij++) {
-            SPDR = numbers[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
             _delay_loop_1(4);
           }
 
 
 
           _delay_loop_1(3);
-          SPDR = numbers[(104) + (temp)];
+          SPDR = pgm_read_byte(&numbers[(104) + (temp)]);
           _delay_loop_1(4);
           for (unsigned char ij = 4; ij < 9; ij++) {
-            SPDR = numbers[buffer[ij] + (temp)];
+            SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
             _delay_loop_1(2);
           }
 
@@ -1648,19 +1648,19 @@ void detectline() {
 
         DimOn;
         for (unsigned char ij = 0; ij < 7; ij++) {
-          SPDR = letters[buffer[ij] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[ij] + (temp)]);
           _delay_loop_1(2);
         }
         _delay_loop_1(6);
 
 
-        SPDR = numbers[(buffer[7]) + (temp)];
+        SPDR = pgm_read_byte(&numbers[(buffer[7]) + (temp)]);
         delay15
-        SPDR = numbers[8 + (temp)];
+        SPDR = pgm_read_byte(&numbers[8 + (temp)]);
         delay15
-        SPDR = numbers[(buffer[8]) + (temp)];
+        SPDR = pgm_read_byte(&numbers[(buffer[8]) + (temp)]);
         delay15
-        SPDR = numbers[(buffer[9]) + (temp)];
+        SPDR = pgm_read_byte(&numbers[(buffer[9]) + (temp)]);
         delay15
         DimOff
 
@@ -1691,20 +1691,20 @@ void detectline() {
           buffer[5] = ('T' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay14
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay13
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay15
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
 
           buffer[0] = (max_altr[0]) << 3;
@@ -1714,19 +1714,19 @@ void detectline() {
           buffer[4] = (max_altr[4]) << 3;
 
 
-          SPDR = numbers[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[0] + (temp)]);
           delay13
-          SPDR = numbers[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[1] + (temp)]);
           delay13
-          SPDR = numbers[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[2] + (temp)]);
           delay13
-          SPDR = numbers[buffer[3] + (temp)];
-          delay13
-
-          SPDR = numbers[8 + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[3] + (temp)]);
           delay13
 
-          SPDR = numbers[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&numbers[8 + (temp)]);
+          delay13
+
+          SPDR = pgm_read_byte(&numbers[buffer[4] + (temp)]);
           delay13
           DimOff;
 
@@ -1746,20 +1746,20 @@ void detectline() {
           buffer[5] = ('D' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay13
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay13
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay15
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
 
 
@@ -1771,15 +1771,15 @@ void detectline() {
           _delay_loop_1(2);
           delay1
 
-          SPDR = numbers[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[0] + (temp)]);
           delay13
-          SPDR = numbers[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[1] + (temp)]);
           delay13
-          SPDR = numbers[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[2] + (temp)]);
           delay15
-          SPDR = numbers[8 + (temp)];
+          SPDR = pgm_read_byte(&numbers[8 + (temp)]);
           delay13
-          SPDR = numbers[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[3] + (temp)]);
           delay13
           DimOff;
 
@@ -1799,20 +1799,20 @@ void detectline() {
           buffer[5] = ('S' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay13
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay13
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay15
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
 
           buffer[0] = (max_losr[0]) << 3;
@@ -1823,13 +1823,13 @@ void detectline() {
           _delay_loop_1(2);
           delay2
 
-          SPDR = numbers[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[0] + (temp)]);
           delay13
-          SPDR = numbers[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[1] + (temp)]);
           delay13
-          SPDR = numbers[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[2] + (temp)]);
           delay13
-          SPDR = numbers[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[3] + (temp)]);
           delay13
           DimOff;
 
@@ -1849,20 +1849,20 @@ void detectline() {
           buffer[5] = ('S' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay9
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay15
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay15
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
 
 
@@ -1875,16 +1875,16 @@ void detectline() {
           _delay_loop_1(1);
           delay1
 
-          SPDR = numbers[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[0] + (temp)]);
           delay13
-          SPDR = numbers[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[1] + (temp)]);
           delay13
 
-          SPDR = numbers[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[2] + (temp)]);
           delay13
-          SPDR = numbers[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[3] + (temp)]);
           delay14
-          SPDR = numbers[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[4] + (temp)]);
           delay13
           DimOff;
 
@@ -1903,14 +1903,14 @@ void detectline() {
 
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay13
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay13
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
           delay15
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay13
 
           buffer[0] = (flight_timer[0]) << 3;
@@ -1922,18 +1922,18 @@ void detectline() {
           delay2
 
 
-          SPDR = numbers[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[0] + (temp)]);
           delay13
-          SPDR = numbers[buffer[1] + (temp)];
-          delay13
-
-          SPDR = numbers[104 + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[1] + (temp)]);
           delay13
 
-
-          SPDR = numbers[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&numbers[104 + (temp)]);
           delay13
-          SPDR = numbers[buffer[3] + (temp)];
+
+
+          SPDR = pgm_read_byte(&numbers[buffer[2] + (temp)]);
+          delay13
+          SPDR = pgm_read_byte(&numbers[buffer[3] + (temp)]);
           delay13
           DimOff;
 
@@ -1952,20 +1952,20 @@ void detectline() {
           buffer[5] = ('D' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay11
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay15
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay15
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
 
 
@@ -1977,18 +1977,18 @@ void detectline() {
           _delay_loop_1(1);
           delay2
 
-          SPDR = numbers[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[0] + (temp)]);
           delay13
-          SPDR = numbers[buffer[1] + (temp)];
-          delay13
-
-          SPDR = numbers[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[1] + (temp)]);
           delay13
 
-          SPDR = numbers[8 + (temp)];
+          SPDR = pgm_read_byte(&numbers[buffer[2] + (temp)]);
           delay13
 
-          SPDR = numbers[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&numbers[8 + (temp)]);
+          delay13
+
+          SPDR = pgm_read_byte(&numbers[buffer[3] + (temp)]);
           delay13
           DimOff;
 
@@ -2007,20 +2007,20 @@ void detectline() {
           buffer[5] = ('@' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay13
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay13
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay13
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
           DimOff;
 
@@ -2038,20 +2038,20 @@ void detectline() {
           buffer[5] = ('@' - 64) << 3;
 
 
-          SPDR = letters[buffer[0] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[0] + (temp)]);
           DimOn;
           delay13
-          SPDR = letters[buffer[1] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[1] + (temp)]);
           delay13
-          SPDR = letters[buffer[2] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[2] + (temp)]);
 
 
           _delay_loop_1(10);
-          SPDR = letters[buffer[3] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[3] + (temp)]);
           delay15
-          SPDR = letters[buffer[4] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[4] + (temp)]);
           delay15
-          SPDR = letters[buffer[5] + (temp)];
+          SPDR = pgm_read_byte(&letters[buffer[5] + (temp)]);
           delay13
           DimOff;
 
@@ -2101,12 +2101,12 @@ void detectline() {
 
       DimOn;
       for (unsigned char ij = 0; ij < 10; ij++) {
-        SPDR = numbers[(buffer[ij]) + (temp)];
+        SPDR = pgm_read_byte(&numbers[(buffer[ij]) + (temp)]);
         _delay_loop_1(2);
       }
 
       buffer[10] = (latitude_dir) << 3;
-      SPDR = letters[(buffer[10]) + (temp)];
+      SPDR = pgm_read_byte(&letters[buffer[10] + (temp)]);
       delay13
       DimOff;
 
@@ -2125,12 +2125,12 @@ void detectline() {
 
       DimOn;
       for (unsigned char ij = 0; ij < 10; ij++) {
-        SPDR = numbers[(buffer[ij]) + (temp)];
+        SPDR = pgm_read_byte(&numbers[buffer[ij] + (temp)]);
         _delay_loop_1(2);
       }
 
       buffer[10] = (longitude_dir) << 3;
-      SPDR = letters[(buffer[10]) + (temp)];
+      SPDR = pgm_read_byte(&letters[buffer[10] + (temp)]);
       delay13
       DimOff;
 
