@@ -100,6 +100,8 @@
 // Value should be 1-9 (1 = show every second (always), 2 = show once every 2. second etc.)
 #define show_gps_coordinates_second 1
 
+#define MKT_GPS 0 // Set to 1 if you are using a MKT-GPS module
+
 
 // Dimming can be turned off. Mainly for debugging
 // 1 = on, 0 = off

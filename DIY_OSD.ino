@@ -57,7 +57,7 @@ void setup() {
   UCSR0C = (3 << UCSZ00);
 
   // Used to set the GPS update-rate to 5 hz, and GPGGA and GPRMC gps-strings (Only for MKT-GPS).
-
+#if MKT_GPS == 1
   Serial.print(F("$PMTK300,200,0,0,0,0*2F"));
   Serial.write(13);
   Serial.write(10);
@@ -65,7 +65,7 @@ void setup() {
   Serial.print(F("$PMTK314,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*28"));
   Serial.write(13);
   Serial.write(10);
-
+#endif
 
   // Enable SPI for pixel generation
   // Set SPI;
