@@ -149,7 +149,7 @@
 //========================================================================
 
 
-#if (video_system == 0)
+#if (VIDEO_SYSTEM == 0)
   // PAL
   #define toplinetext 41
   #define toplinenumbers 51
